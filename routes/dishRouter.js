@@ -180,6 +180,9 @@ dishRouter.route('/:dishId/comments/:commentId')
             if (req.body.comment) {
                 dish.comments.id(req.params.commentId).comment = req.body.comment;                
             }
+            if (req.body.author) {
+                dish.comments.id(req.params.commentId).author = req.body.author;                
+            }
             dish.save()
             .then((dish) => {
                 res.statusCode = 200;
